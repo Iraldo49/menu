@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taka Away - Menu Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .category-scroll::-webkit-scrollbar { display: none; }
+        .category-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-black shadow-sm sticky top-0 z-50">
+        <div class="max-w-md mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="mr-3">
+                        <circle cx="20" cy="20" r="18" fill="#FDE047" stroke="#000" stroke-width="2"/>
+                        <path d="M12 16h16l-2 8H14l-2-8z" fill="#000"/>
+                        <circle cx="16" cy="28" r="2" fill="#000"/>
+                        <circle cx="24" cy="28" r="2" fill="#000"/>
+                        <path d="M10 12h4l1 4" stroke="#000" stroke-width="2" fill="none"/>
+                    </svg>
+                    <div>
+                        <h1 class="text-xl font-bold text-yellow-400">Taka Away</h1>
+                        <!-- <p class="text-xs text-gray-300">Delivery • 25-35 min</p> -->
+                    </div>
+                </div>
+                <div class="relative">
+                    <button id="cart-btn" class="bg-yellow-400 text-black p-3 rounded-full relative hover:bg-yellow-500 transition-colors">
+                        🛒
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-black text-yellow-400 text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories -->
+    <div class="bg-black border-b border-gray-800">
+        <div class="max-w-md mx-auto">
+            <div class="category-scroll flex overflow-x-auto px-4 py-3 space-x-4">
+                <button class="category-btn bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap" data-category="pratos-principais">
+                   Food
+                </button>
+                <button class="category-btn bg-gray-800 text-yellow-400 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-700" data-category="bebidas">
+                    Bebidas
+                </button>
+                <!-- <button class="category-btn bg-gray-800 text-yellow-400 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-700" data-category="sobremesas">
+                    Sobremesas
+                </button> -->
+                <button class="category-btn bg-gray-800 text-yellow-400 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-700" data-category="entradas">
+                    Extra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Items -->
+    <main class="max-w-md mx-auto px-4 py-6 pb-24">
+        <!-- Pratos Principais -->
+        <div id="pratos-principais" class="category-section">
+            <h2 class="text-xl font-bold text-black mb-4">Pratos Principais</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Hambúrguer Artesanal" data-price="100">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">King Hambúrguer Simples</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pão, carne 180g, queijo, salada e molho especial do king</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">100 mzn</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop&crop=center" alt="Hambúrguer Artesanal" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Hambúrguer Artesanal" data-price="130">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">King Hambúrguer Completo</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pão, carne 180g, queijo, salada, ovo e molho especial</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">130 mzn</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop&crop=center" alt="Hambúrguer Artesanal" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Hambúrguer Artesanal" data-price="150">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">King Hambúrguer Completo com Batatas</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pão, carne 180g, queijo, alface, ovo, molho especial com batatas dentro</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">150 mzn</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop&crop=center" alt="Hambúrguer Artesanal" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Hambúrguer Artesanal" data-price="170">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">King Hambúrguer Completo com Batatas Extra</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pão, carne 180g, queijo, alface, ovo, molho especial com batatas extra</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">170 mzn</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop&crop=center" alt="Hambúrguer Artesanal" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Hambúrguer Artesanal" data-price="170">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">Duplo King Hambúrguer Completo </h3>
+                            <p class="text-sm text-gray-600 mt-1">Pão, duas carne 180g, dois queijo, salada, ovo e molho especial do king</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">170 mzn</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop&crop=center" alt="Hambúrguer Artesanal" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Hambúrguer Artesanal" data-price="200">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">Duplo King Hambúrguer Completo com Batatas</h3>
+                            <p class="text-sm text-gray-600 mt-1">Pão, duas carne 180g, dois queijo, salada, ovo, molho especial com batatas extra</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">200 mzn</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop&crop=center" alt="Hambúrguer Artesanal" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Bebidas -->
+        <div id="bebidas" class="category-section hidden">
+            <h2 class="text-xl font-bold text-black mb-4">Bebidas</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Refrigerante Lata" data-price="115">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">Refrigerante Lata</h3>
+                            <p class="text-sm text-gray-600 mt-1">Coca-Cola, Pepsi, Guaraná ou Fanta - 350ml</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">115 MZN</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=200&h=200&fit=crop&crop=center" alt="Refrigerante Lata" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Suco Natural" data-price="200">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">Suco Natural</h3>
+                            <p class="text-sm text-gray-600 mt-1">Laranja, limão, maracujá ou acerola - 500ml</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">200 MZN</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=200&h=200&fit=crop&crop=center" alt="Suco Natural" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobremesas -->
+        <div id="sobremesas" class="category-section hidden">
+            <h2 class="text-xl font-bold text-black mb-4">Sobremesas</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Brownie com Sorvete" data-price="325">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">Brownie com Sorvete</h3>
+                            <p class="text-sm text-gray-600 mt-1">Brownie de chocolate quente com sorvete de baunilha</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">325 MZN</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop&crop=center" alt="Brownie com Sorvete" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Entradas -->
+        <div id="entradas" class="category-section hidden">
+            <h2 class="text-xl font-bold text-black mb-4">Entradas</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 menu-item" data-name="Batata Frita" data-price="60">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-black">Batata Frita</h3>
+                            <p class="text-sm text-gray-600 mt-1">Porção generosa com molhos especiais</p>
+                            <p class="text-lg font-bold text-yellow-500 mt-2">60 MZN</p>
+                        </div>
+                        <div class="ml-4 flex flex-col items-center">
+                            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200&h=200&fit=crop&crop=center" alt="Batata Frita" class="w-20 h-20 rounded-lg object-cover mb-2" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+                            <button class="add-btn bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl max-w-md mx-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-black">Seu Pedido</h3>
+                    <button id="close-cart" class="text-gray-500 hover:text-gray-700">✕</button>
+                </div>
+                
+                <div id="cart-items" class="space-y-3 mb-6 max-h-60 overflow-y-auto">
+                    <!-- Cart items will be inserted here -->
+                </div>
+                
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-bold text-black">Total:</span>
+                        <span id="cart-total" class="text-xl font-bold text-yellow-500">0 MZN</span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-black mb-2">Seu nome:</label>
+                        <input type="text" id="customer-name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Digite seu nome">
+                    </div>
+                    
+                    <button id="send-whatsapp" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        Enviar Pedido via WhatsApp 📱
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Cart Bar -->
+    <div id="footer-cart" class="fixed bottom-0 left-0 right-0 bg-black border-t-2 border-yellow-400 z-40 hidden">
+        <div class="max-w-md mx-auto px-4 py-3">
+            <button class="w-full bg-yellow-400 text-black py-3 px-4 rounded-lg font-semibold hover:bg-yellow-500 transition-colors flex items-center justify-between">
+                <div class="flex items-center">
+                    <span class="text-lg">🛒</span>
+                    <span class="ml-2">Ver Carrinho</span>
+                    <span id="footer-count" class="ml-2 bg-black text-yellow-400 px-2 py-1 rounded-full text-sm font-bold">0</span>
+                </div>
+                <span id="footer-total" class="font-bold">0 MZN</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+
+        // Category switching
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update button styles
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('bg-yellow-400', 'text-black');
+                    b.classList.add('bg-gray-800', 'text-yellow-400');
+                });
+                btn.classList.remove('bg-gray-800', 'text-yellow-400');
+                btn.classList.add('bg-yellow-400', 'text-black');
+
+                // Show/hide sections
+                document.querySelectorAll('.category-section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                document.getElementById(btn.dataset.category).classList.remove('hidden');
+            });
+        });
+
+        // Add to cart
+        document.querySelectorAll('.add-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const menuItem = e.target.closest('.menu-item');
+                const name = menuItem.dataset.name;
+                const price = parseFloat(menuItem.dataset.price);
+
+                // Check if item already exists in cart
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+
+                updateCartDisplay();
+                
+                // Visual feedback
+                btn.textContent = 'Adicionado!';
+                btn.classList.remove('bg-yellow-400');
+                btn.classList.add('bg-green-600', 'text-white');
+                setTimeout(() => {
+                    btn.textContent = 'Adicionar';
+                    btn.classList.remove('bg-green-600', 'text-white');
+                    btn.classList.add('bg-yellow-400');
+                }, 1000);
+            });
+        });
+
+        // Cart modal controls
+        document.getElementById('cart-btn').addEventListener('click', () => {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        });
+
+        document.getElementById('footer-cart').addEventListener('click', () => {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        });
+
+        document.getElementById('close-cart').addEventListener('click', () => {
+            document.getElementById('cart-modal').classList.add('hidden');
+        });
+
+        // Update cart display
+        function updateCartDisplay() {
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Update cart counter
+            const cartCountEl = document.getElementById('cart-count');
+            const footerCountEl = document.getElementById('footer-count');
+            const footerTotalEl = document.getElementById('footer-total');
+            
+            if (cartCountEl) {
+                cartCountEl.textContent = cartCount;
+                if (cartCount > 0) {
+                    cartCountEl.classList.remove('hidden');
+                } else {
+                    cartCountEl.classList.add('hidden');
+                }
+            }
+
+            if (footerCountEl) {
+                footerCountEl.textContent = cartCount;
+            }
+
+            if (footerTotalEl) {
+                footerTotalEl.textContent = `${cartTotal} MZN`;
+            }
+
+            // Show/hide footer cart
+            if (cartCount > 0) {
+                document.getElementById('footer-cart').classList.remove('hidden');
+            } else {
+                document.getElementById('footer-cart').classList.add('hidden');
+            }
+
+            // Update cart items display
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex justify-between items-center bg-gray-50 p-3 rounded-lg';
+                itemElement.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="font-medium text-black">${item.name}</h4>
+                        <p class="text-sm text-gray-600">${item.price} MZN</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="quantity-btn bg-gray-200 text-black w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300" data-action="decrease" data-index="${index}">-</button>
+                        <span class="font-medium w-8 text-center text-black">${item.quantity}</span>
+                        <button class="quantity-btn bg-yellow-400 text-black w-8 h-8 rounded-full flex items-center justify-center hover:bg-yellow-500" data-action="increase" data-index="${index}">+</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+
+            // Update total
+            document.getElementById('cart-total').textContent = `${cartTotal} MZN`;
+
+            // Add quantity button listeners
+            document.querySelectorAll('.quantity-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const action = e.target.dataset.action;
+                    const index = parseInt(e.target.dataset.index);
+
+                    if (action === 'increase') {
+                        cart[index].quantity += 1;
+                    } else if (action === 'decrease') {
+                        cart[index].quantity -= 1;
+                        if (cart[index].quantity <= 0) {
+                            cart.splice(index, 1);
+                        }
+                    }
+
+                    updateCartDisplay();
+                });
+            });
+        }
+
+        // Send to WhatsApp
+        document.getElementById('send-whatsapp').addEventListener('click', () => {
+            const customerName = document.getElementById('customer-name').value.trim();
+            
+            if (!customerName) {
+                alert('Por favor, digite seu nome antes de enviar o pedido.');
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+
+            let message = `🍽️ *NOVO PEDIDO*\n\n`;
+            message += `👤 *Cliente:* ${customerName}\n\n`;
+            message += `📋 *Itens do Pedido:*\n`;
+
+            cart.forEach(item => {
+                message += `• ${item.quantity}x ${item.name} - ${(item.price * item.quantity)} MZN\n`;
+            });
+
+            message += `\n💰 *TOTAL: ${cartTotal} MZN*\n\n`;
+            message += `📍 Aguardando confirmação do pedido!`;
+
+            // Replace with your WhatsApp number (include country code without +)
+            const whatsappNumber = '+258822937027'; // Example: Mozambique number
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        });
+
+        // Initialize
+        updateCartDisplay();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98220e56771433e5',t:'MTc1ODM3ODk5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
